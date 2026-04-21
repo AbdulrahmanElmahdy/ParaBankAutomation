@@ -1,9 +1,8 @@
 package ParaBank.TestRunner.AssertionsValidation;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.asserts.SoftAssert;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.*;
+import org.testng.asserts.*;
 
 import java.time.Duration;
 
@@ -12,7 +11,7 @@ import static ParaBank.TestRunner.ParaBankHooks.ParaBank_Hooks.driver;
 public class MessagesValidations {
 
     public static String accountCreationMessage = "ACCOUNT CREATED!";
-    public static String signUpSuccessfulMessage = "Congratulations! Your new account has been successfully created!";
+    public static String signUpSuccessfulMessage = "Your account was created successfully. You are now logged in.";
     public static String memberPrivilegesMessage = "You can now take advantage of member privileges to enhance your online shopping experience with us.";
     public static String loggedInAs = "Logged in as ";
 

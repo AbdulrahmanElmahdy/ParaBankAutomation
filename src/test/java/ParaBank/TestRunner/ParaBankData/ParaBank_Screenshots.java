@@ -1,11 +1,9 @@
 package ParaBank.TestRunner.ParaBankData;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.*;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -23,7 +21,8 @@ public class ParaBank_Screenshots {
         File destination = new File("testOutPut/ParaBankScreenshots/".concat(name));
         filePath = destination.getAbsolutePath();
         FileUtils.copyFile(screenshotFile, destination);
-        test.addScreenCaptureFromPath(filePath);
+        String relativePath = "../ParaBankScreenshots/" + name;
+        test.addScreenCaptureFromPath(relativePath);
     }
 
     public static void ParaBank_passScreenshots() throws IOException {
@@ -35,6 +34,7 @@ public class ParaBank_Screenshots {
         File destination = new File("testOutPut/ParaBankScreenshots/".concat(name));
         filePath = destination.getAbsolutePath();
         FileUtils.copyFile(screenshotFile, destination);
-        test.addScreenCaptureFromPath(filePath);
+        String relativePath = "../ParaBankScreenshots/" + name;
+        test.addScreenCaptureFromPath(relativePath);
     }
 }

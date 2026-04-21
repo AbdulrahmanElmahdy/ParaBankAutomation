@@ -1,23 +1,23 @@
 package ParaBank.TestRunner.ParaBankStepDefin;
 
-import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.*;
 import io.cucumber.java.en.*;
 import org.testng.Assert;
 
 import java.io.IOException;
 
+import static ParaBank.TestRunner.AssertionsValidation.MessagesValidations.*;
 import static ParaBank.TestRunner.ParaBankData.ParaBank_DataPreparation.*;
 import static ParaBank.TestRunner.ParaBankData.ParaBank_Screenshots.*;
-import static ParaBank.TestRunner.ParaBankLocators.ParaBank_Locators.*;
 import static ParaBank.TestRunner.ParaBankHooks.ParaBank_Hooks.*;
+import static ParaBank.TestRunner.ParaBankLocators.ParaBank_Locators.*;
 
 public class ParaBank_SignUp {
 
     @Given("User navigate to sign up page")
     public static void userSignUp() throws IOException {
         setParaBankData();
-        // Write code to navigate to sign up page
+        // Write code to navigate to the sign-up page
         findClickableElement(SignUpButton).click();
     }
 
@@ -39,7 +39,7 @@ public class ParaBank_SignUp {
 
     @When("User click on register button")
     public static void userClickOnSignUpButton() {
-        // Write code to click on sign up button
+        // Write code to click on the signup button
         findClickableElement(submitButton).click();
     }
 
@@ -56,6 +56,7 @@ public class ParaBank_SignUp {
             ParaBank_failureScreenshots();
             test.log(Status.FAIL, "Register is failed", MediaEntityBuilder.createScreenCaptureFromPath(filePath).build());
         }
+        softAssert(successMessage, signUpSuccessfulMessage);
         Assert.assertTrue(registerSuccess, "Your account was created successfully. You are now logged in.");
     }
 }
